@@ -1,0 +1,16 @@
+<!DOCTYPE html>                                                                                                                                         
+    <html>                                                                                                                                                  
+    <head>                                                                                                                                                  
+      <title>GitHub PR Search Redirect</title>                                                                                                              
+    </head>                                                                                                                                                 
+    <body>                                                                                                                                                  
+      <script>                                                                                                                                              
+        const org = 'spaceportxyz';                                                                                                                               
+        const repo = 'monorepo';                                                                                                                             
+        const oneWeekAgo = new Date(new Date().setDate(new Date().getDate()-7)).toISOString().split('T')[0];                                                
+        const query = encodeURIComponent(`is:pr is:closed closed:>${oneWeekAgo}`);                                                                          
+        const url = `https://github.com/${org}/${repo}/pulls?q=${query}`;                                                                                   
+        window.location.href = url;                                                                                                                         
+      </script>                                                                                                                                             
+    </body>              
+    </html>
