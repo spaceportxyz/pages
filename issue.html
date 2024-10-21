@@ -13,7 +13,7 @@
       const repo = getQueryParam("repo") || "monorepo"; // Function to get query parameters
 
       const twoWeekAgo = new Date(new Date().setDate(new Date().getDate() - 14)).toISOString().split("T")[0];
-      const query = encodeURIComponent(`is:issue is:open created:>${oneWeekAgo}`);
+      const query = encodeURIComponent(`is:issue is:open created:>${twoWeekAgo}`);
       const url = `https://github.com/${org}/${repo}/issues?q=${query}`;
       window.location.href = url;
     </script>
