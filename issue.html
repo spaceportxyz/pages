@@ -12,9 +12,8 @@
       const org = getQueryParam("org") || "spaceportxyz";
       const repo = getQueryParam("repo") || "monorepo"; // Function to get query parameters
 
-      // Get repo from query parameter, default to 'monorepo' if not provided
-      const oneWeekAgo = new Date(new Date().setDate(new Date().getDate() - 7)).toISOString().split("T")[0];
-      const query = encodeURIComponent(`is:issue is:open opened:>${oneWeekAgo} -label:dependencies sort:updated-desc `);
+      const twoWeekAgo = new Date(new Date().setDate(new Date().getDate() - 14)).toISOString().split("T")[0];
+      const query = encodeURIComponent(`is:issue is:open created:>${oneWeekAgo}`);
       const url = `https://github.com/${org}/${repo}/issues?q=${query}`;
       window.location.href = url;
     </script>
